@@ -1,13 +1,18 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
+  <!-- <div class="row mt-5">
           <div>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <a href="/logout" class="col-3 btn btn-success">Logout</a>
           </div>
-      </div>
+  </div> -->
+  <div class="row mt-5">
+    <h2 class="display-5 text-center font-italic ">Welcome, <%= user.userName %></h2>
+    <p class="text-center bg-warning">Welcome to ZenZone, your personal oasis for mental well-being and self-care. This is a safe and nurturing space where you can store your thoughts and feelings, express gratitude, and work towards your goals. Let ZenZone be your virtual journal, gratitude journal, and vision board all in one.</p>
   </div>
+
+  <a href="/logout" class="col-3 btn btn-success">Logout</a>
 </div>
+
 <%- include('partials/footer') -%>

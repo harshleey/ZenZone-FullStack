@@ -9,6 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoute = require("./routes/mainRoute");
+const gratitudeRoute = require("./routes/gratitudeRoute")
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -57,6 +58,7 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 
 app.use("/", mainRoute)
+app.use("/gratitude", gratitudeRoute)
 
 app.listen(PORT, () => {
  console.log(`Server is running on port ${PORT}, you better catch it!`);

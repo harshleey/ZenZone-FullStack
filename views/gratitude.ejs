@@ -1,7 +1,66 @@
 <%- include('partials/header') -%>
 
 <main class="container">
- <h1>This is gratitude page</h1>
+ <h1>Express Daily Gratitude</h1>
+
+ <p>Step into a serene realm where gratitude thrives. Here, you nurture what truly matters. Each entry is a spark that fuels happiness and contentment. As you honor life's treasures, you sow the seeds of positivity, energizing your journey to fulfillment.
+ </p>
+
+ <p>Capture moments of appreciation, watch them flourish, and let your journal be a beacon of joy. Your ZenZone Mental Health App accompanies you as you cultivate a garden of gratitude, enriching your well-being, one entry at a time.</p>
+
+ <h2>Log Gratitude</h2>
+
+ <p>Log up to five things you are grateful for</p>
+
+ <div class="mt-5">
+  <form action="/gratitude/postGratitude" method="POST">
+    <div class="mb-3">
+      <input type="text" class="form-control" id="grad1" name="grad1">
+    </div>
+    <div class="mb-3">
+     <input type="text" class="form-control" id="grad2" name="grad2">
+    </div>
+    <div class="mb-3">
+     <input type="text" class="form-control" id="grad3" name="grad3">
+    </div>
+    <div class="mb-3">
+     <input type="text" class="form-control" id="grad4" name="grad4">
+    </div>
+    <div class="mb-3">
+     <input type="text" class="form-control" id="grad5" name="grad5">
+    </div>
+    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+  </form>
+</div>
+</div>
+
+
+<ul class="list-unstyled">
+ <% for(const grad of grads) {%>
+  <p class="text-center"><%= grad.createdAt%></p>
+   <li class="col-6 justify-content-between mt-5 list-style-none text-center">
+     <%= grad.grad1%> <br>
+     <%= grad.grad2%> <br>
+     <%= grad.grad3%> <br>
+     <%= grad.grad4%> <br>
+     <%= grad.grad5%> <br>
+   </li>
+   <%if(grad.user == user.id){ %>
+   <form
+     action="/gratitude/deleteGratitude/<%= grad._id %>?_method=DELETE"
+     method="POST"
+     class="col-3"
+   >
+     <button class="btn btn-primary" type="submit">Delete Entry</button>
+   </form>
+   <% } %>
+ <% } %>
+  </ul>
+
+
 </main>
 
 <%- include('partials/footer') -%>
+
+<!-- <%if(grads.user == user.id){ %> -->
+ <!-- <%}%> -->
